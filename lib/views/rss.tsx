@@ -13,6 +13,10 @@ const RSS: FC<{ data: Data }> = ({ data }) => {
                 <link>{data.link || 'https://docs.rsshub.app'}</link>
                 <atom:link href={data.atomlink} rel="self" type="application/rss+xml" />
                 <description>{data.description || data.title} - Powered by RSSHub</description>
+                <follow_challenge>
+                    <feedId>59926665250668544</feedId>
+                    <userId>56237870408300544</userId>
+                </follow_challenge>
                 <generator>RSSHub</generator>
                 <webMaster>contact@rsshub.app (RSSHub)</webMaster>
                 {data.itunes_author && <itunes:author>{data.itunes_author}</itunes:author>}
