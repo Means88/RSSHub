@@ -11,6 +11,10 @@ const RSS: FC<{ data: Data }> = ({ data }) => (
         <webMaster>contact@rsshub.app (RSSHub)</webMaster>
         <language>{data.language || 'en'}</language>
         <updated>{data.lastBuildDate}</updated>
+        <follow_challenge>
+            <feedId>59926665250668544</feedId>
+            <userId>56237870408300544</userId>
+        </follow_challenge>
         <author>
             <name>{data.author || 'RSSHub'}</name>
         </author>
