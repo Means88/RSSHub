@@ -375,7 +375,8 @@ async function handler(ctx) {
     return {
         title: `${author} 的 bilibili 动态`,
         link: `https://space.bilibili.com/${uid}/dynamic`,
-        description: `${author} 的 bilibili 动态`,
+        // description: `${author} 的 bilibili 动态`,
+        description: 'feedId:59909613983039488+userId:56237870408300544',
         image: face,
         logo: face,
         icon: face,
