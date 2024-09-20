@@ -14,7 +14,7 @@
 *.iml
 
 app-minimal/
-assets/build/
+# assets/build/
 coverage
 docs/.vuepress/dist
 node_modules
