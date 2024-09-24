@@ -1,0 +1,68 @@
+import { Route } from '@/types';
+import ofetch from '@/utils/ofetch';
+import { load } from 'cheerio';
+
+export const route: Route = {
+    path: '/all',
+    categories: ['shopping'],
+    example: '/gustshop/all',
+    parameters: {},
+    features: {
+        requireConfig: false,
+        requirePuppeteer: false,
+        antiCrawler: false,
+        supportBT: false,
+        supportPodcast: false,
+        supportScihub: false,
+    },
+    radar: [
+        {
+            source: ['shop.koeitecmo.com/products/list'],
+        },
+    ],
+    name: 'Gust Shop All Products',
+    maintainers: ['Means88'],
+    handler,
+    url: 'shop.koeitecmo.com/GustProductItem/list',
+};
+
+async function handler() {
+    const itemList = await getItemList();
+    return {
+        title: 'Gust Shop All Products',
+        link: 'https://shop.koeitecmo.com/products/list',
+        item: await Promise.all(
+            itemList.map(async (item) => ({
+                title: item.name,
+                link: item.product_link,
+                // hack, origin does not provide pubDate
+                pubDate: new Date(1_727_189_309_879 + Number(item.product_id)).toUTCString(),
+                description: await getItem(item.product_link),
+            }))
+        ),
+    };
+}
+
+async function getItemList() {
+    const url = 'https://shop.koeitecmo.com/GustProductItem/list/1';
+    try {
+        const response = await ofetch(url, {
+            method: 'POST',
+            body: { orderby: 'new' },
+        });
+        return response.productList;
+    } catch {
+        return [];
+    }
+}
+
+async function getItem(url: string) {
+    const response = await ofetch(url);
+    const $ = load(response);
+    const description = $('.product-description').html();
+    const detailContents = $('.detail-contents')
+        .toArray()
+        .map((item) => $(item).html())
+        .join('');
+    return `${description}<br>${detailContents}`;
+}
