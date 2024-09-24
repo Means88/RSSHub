@@ -1683,7 +1683,7 @@
             { title: '科学人', docs: 'https://docs.rsshub.app/routes/new-media', source: ['/scientific', '/'], target: '/guokr/scientific' },
         ],
     },
-    'koeitecmo.com': { _name: 'Gust Shop', shop: [{ title: 'Gust Shop All Products', docs: 'https://docs.rsshub.app/routes/shopping', source: ['/products/list'], target: '/gustshop/all' }] },
+    'koeitecmo.com': { _name: 'Gust Shop', shop: [{ title: 'Gust Shop All Products', docs: 'https://docs.rsshub.app/routes/shopping', source: ['/products/list'], target: '/gustshop/all/:v?' }] },
     'gxmzu.edu.cn': {
         _name: '广西民族大学',
         ai: [{ title: '人工智能学院通知公告', docs: 'https://docs.rsshub.app/routes/university', source: ['/index/tzgg.htm', '/'], target: '/gxmzu/aitzgg' }],

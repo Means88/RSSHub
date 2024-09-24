@@ -30503,13 +30503,15 @@
   },
   "gustshop": {
     "routes": {
-      "/all": {
-        "path": "/all",
+      "/all/:v?": {
+        "path": "/all/:v?",
         "categories": [
           "shopping"
         ],
         "example": "/gustshop/all",
-        "parameters": {},
+        "parameters": {
+          "v": "version"
+        },
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,

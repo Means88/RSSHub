@@ -9473,7 +9473,7 @@
         "source": [
           "/products/list"
         ],
-        "target": "/gustshop/all"
+        "target": "/gustshop/all/:v?"
       }
     ]
   },
