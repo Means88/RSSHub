@@ -3,10 +3,12 @@ import ofetch from '@/utils/ofetch';
 import { load } from 'cheerio';
 
 export const route: Route = {
-    path: '/all',
+    path: '/all/:v?',
     categories: ['shopping'],
     example: '/gustshop/all',
-    parameters: {},
+    parameters: {
+        v: 'version',
+    },
     features: {
         requireConfig: false,
         requirePuppeteer: false,
