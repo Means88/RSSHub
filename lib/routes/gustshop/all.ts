@@ -29,8 +29,10 @@ export const route: Route = {
 async function handler() {
     const itemList = await getItemList();
     return {
-        title: 'Gust Shop All Products',
+        title: 'Gust Shop - All Products',
         link: 'https://shop.koeitecmo.com/products/list',
+        icon: 'https://shop.koeitecmo.com/favicon.ico',
+        logo: 'https://shop.koeitecmo.com/favicon.ico',
         item: await Promise.all(
             itemList.map(async (item) => ({
                 title: item.name,
@@ -59,6 +61,10 @@ async function getItemList() {
 async function getItem(url: string) {
     const response = await ofetch(url);
     const $ = load(response);
+    $('.sns-list').remove();
+    $('.product-related').remove();
+    $('.product-options').remove();
+    $('.detail-header-right').remove();
     const description = $('.product-description').html();
     const detailContents = $('.detail-contents')
         .toArray()
