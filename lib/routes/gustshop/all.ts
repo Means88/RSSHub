@@ -40,6 +40,7 @@ async function handler() {
                 // hack, origin does not provide pubDate
                 pubDate: new Date(1_727_189_309_879 + Number(item.product_id)).toUTCString(),
                 description: await getItem(item.product_link),
+                image: `https://shop.koeitecmo.com/upload/save_image/${item.file_name}`,
             }))
         ),
     };
