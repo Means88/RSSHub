@@ -14,7 +14,7 @@ const RSS: FC<{ data: Data }> = ({ data }) => {
                 <atom:link href={data.atomlink} rel="self" type="application/rss+xml" />
                 <description>{data.description || data.title} - Powered by RSSHub</description>
                 <follow_challenge>
-                    <feedId>61428648200922112</feedId>
+                    <feedId>61438593514009600</feedId>
                     <userId>56237870408300544</userId>
                 </follow_challenge>
                 <generator>RSSHub</generator>

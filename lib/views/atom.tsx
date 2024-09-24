@@ -12,7 +12,7 @@ const RSS: FC<{ data: Data }> = ({ data }) => (
         <language>{data.language || 'en'}</language>
         <updated>{data.lastBuildDate}</updated>
         <follow_challenge>
-            <feedId>61428648200922112</feedId>
+            <feedId>61438593514009600</feedId>
             <userId>56237870408300544</userId>
         </follow_challenge>
         <author>
