@@ -33,12 +33,13 @@ async function handler() {
         link: 'https://shop.koeitecmo.com/products/list',
         icon: 'https://shop.koeitecmo.com/favicon.ico',
         logo: 'https://shop.koeitecmo.com/favicon.ico',
+        image: 'https://shop.koeitecmo.com/assets/images/bnr/shop_bnr_ktspot.jpg',
         item: await Promise.all(
             itemList.map(async (item) => ({
                 title: item.name,
                 link: item.product_link,
                 // hack, origin does not provide pubDate
-                pubDate: new Date(1_727_189_309_879 + Number(item.product_id)).toUTCString(),
+                pubDate: new Date(1_724_189_309_879 + Number(item.product_id) * 60 * 1000).toUTCString(),
                 description: await getItem(item.product_link),
                 image: `https://shop.koeitecmo.com/upload/save_image/${item.file_name}`,
             }))
