@@ -69,6 +69,7 @@ async function getItem(url: string) {
     $('.product-related').remove();
     $('.product-options').remove();
     $('.detail-header-right').remove();
+    $('input').remove();
     const description = $('.product-description').html();
     const detailContents = $('.detail-contents')
         .toArray()
